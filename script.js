@@ -1,6 +1,7 @@
 "use strict";
 
 const numbers = document.querySelectorAll(".number");
+const decimal = document.querySelector(".decimal");
 const plusMinus = document.querySelector(".plusMinus");
 const percentage = document.querySelector(".percentage");
 const display = document.querySelector(".input");
@@ -22,6 +23,22 @@ numbers.forEach(function (number) {
       display.innerText += displayValue;
     }
   });
+});
+
+decimal.addEventListener("click", (e) => {
+  if (parseFloat(display.innerText) !== "0") {
+    decimal.disabled = true;
+  } else {
+    decimal.disabled = false;
+  }
+  if (display.innerText === "0") {
+    displayValue += 0;
+    displayValue += e.target.dataset.decimal;
+    display.innerText = displayValue;
+  } else {
+    displayValue += e.target.dataset.decimal;
+    display.innerText = displayValue;
+  }
 });
 
 plusMinus.addEventListener("click", () => {
