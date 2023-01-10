@@ -1,6 +1,7 @@
 "use strict";
 
 const numbers = document.querySelectorAll(".number");
+const plusMinus = document.querySelector(".plusMinus");
 const display = document.querySelector(".input");
 const del = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
@@ -20,6 +21,12 @@ numbers.forEach(function (number) {
       display.innerText += displayValue;
     }
   });
+});
+
+plusMinus.addEventListener("click", () => {
+  let j = parseFloat(displayValue) * -1;
+  displayValue = j.toString();
+  display.innerText = displayValue;
 });
 
 del.addEventListener("click", () => {
