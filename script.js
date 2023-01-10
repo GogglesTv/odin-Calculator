@@ -1,16 +1,19 @@
 "use strict";
 
+const display = document.querySelector(".input");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
+const equals = document.querySelector(".equals");
 const decimal = document.querySelector(".decimal");
 const plusMinus = document.querySelector(".plusMinus");
 const percentage = document.querySelector(".percentage");
-const display = document.querySelector(".input");
 const del = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
 
 let displayValue = "0";
 let value1 = "0";
+let value2;
+let result = 0;
 let operate = "";
 
 numbers.forEach(function (number) {
@@ -42,6 +45,14 @@ operators.forEach(function (operator) {
       }
     });
   });
+});
+
+equals.addEventListener("click", function () {
+  value2 = parseFloat(displayValue);
+  if (operate === "+") add();
+  if (operate === "-") subtract();
+  if (operate === "*") multiply();
+  if (operate === "/") divide();
 });
 
 decimal.addEventListener("click", (e) => {
@@ -81,6 +92,30 @@ clear.addEventListener("click", () => {
   displayValue = "0";
   display.innerText = displayValue;
 });
+
+function add() {
+  result = value1 + value2;
+  displayValue = result;
+  display.innerText = displayValue;
+}
+
+function subtract() {
+  result = value1 - value2;
+  displayValue = result;
+  display.innerText = displayValue;
+}
+
+function divide() {
+  result = value1 / value2;
+  displayValue = result;
+  display.innerText = displayValue;
+}
+
+function multiply() {
+  result = value1 * value2;
+  displayValue = result;
+  display.innerText = displayValue;
+}
 
 function moveDecimal(n) {
   let x = parseInt(n);
