@@ -2,6 +2,7 @@
 
 const numbers = document.querySelectorAll(".number");
 const plusMinus = document.querySelector(".plusMinus");
+const percentage = document.querySelector(".percentage");
 const display = document.querySelector(".input");
 const del = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
@@ -29,6 +30,10 @@ plusMinus.addEventListener("click", () => {
   display.innerText = displayValue;
 });
 
+percentage.addEventListener("click", () => {
+  moveDecimal(displayValue);
+});
+
 del.addEventListener("click", () => {
   if (displayValue !== "0") {
     displayValue = display.innerText.slice(0, -1);
@@ -40,3 +45,9 @@ clear.addEventListener("click", () => {
   displayValue = "0";
   display.innerText = displayValue;
 });
+
+function moveDecimal(n) {
+  let x = parseInt(n);
+  displayValue = (x / 100).toString();
+  display.innerText = displayValue;
+}
