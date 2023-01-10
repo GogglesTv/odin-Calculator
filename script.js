@@ -2,6 +2,8 @@
 
 const numbers = document.querySelectorAll(".number");
 const display = document.querySelector(".input");
+const del = document.querySelector(".delete");
+const clear = document.querySelector(".clear");
 
 let displayValue = "0";
 
@@ -18,4 +20,16 @@ numbers.forEach(function (number) {
       display.innerText += displayValue;
     }
   });
+});
+
+del.addEventListener("click", () => {
+  if (displayValue !== "0") {
+    displayValue = display.innerText.slice(0, -1);
+    display.innerText = displayValue;
+  }
+});
+
+clear.addEventListener("click", () => {
+  displayValue = "0";
+  display.innerText = displayValue;
 });
