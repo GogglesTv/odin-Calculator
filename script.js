@@ -56,7 +56,7 @@ equals.addEventListener("click", function () {
     divide();
   } else if (operate === "/" && value2 === 0) {
     display.innerText = `Are you blind?`;
-    display.style.fontSize = "36px";
+    display.style.fontSize = "56px";
   }
 });
 
