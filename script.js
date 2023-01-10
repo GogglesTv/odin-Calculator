@@ -1,6 +1,7 @@
 "use strict";
 
 const numbers = document.querySelectorAll(".number");
+const operators = document.querySelectorAll(".operator");
 const decimal = document.querySelector(".decimal");
 const plusMinus = document.querySelector(".plusMinus");
 const percentage = document.querySelector(".percentage");
@@ -9,6 +10,8 @@ const del = document.querySelector(".delete");
 const clear = document.querySelector(".clear");
 
 let displayValue = "0";
+let value1 = "0";
+let operate = "";
 
 numbers.forEach(function (number) {
   number.addEventListener("click", function (e) {
@@ -22,6 +25,22 @@ numbers.forEach(function (number) {
       displayValue += e.target.dataset.num;
       display.innerText += displayValue;
     }
+  });
+});
+
+operators.forEach(function (operator) {
+  operator.addEventListener("click", function (e) {
+    value1 = parseFloat(displayValue);
+    operate = e.target.dataset.operator;
+    displayValue = "";
+    e.target.style.backgroundColor = "white";
+    e.target.style.color = "orange";
+    operators.forEach(function (operator) {
+      if (operator.dataset.operator !== operate) {
+        operator.style.backgroundColor = "orange";
+        operator.style.color = "white";
+      }
+    });
   });
 });
 
