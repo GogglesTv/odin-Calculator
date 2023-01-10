@@ -33,6 +33,14 @@ numbers.forEach(function (number) {
 
 operators.forEach(function (operator) {
   operator.addEventListener("click", function (e) {
+    if (typeof value1 === "number") {
+      value2 = parseFloat(displayValue);
+      if (operate === "+") add();
+      if (operate === "-") subtract();
+      if (operate === "*") multiply();
+      if (operate === "/") divide();
+    }
+
     value1 = parseFloat(displayValue);
     operate = e.target.dataset.operator;
     displayValue = "";
