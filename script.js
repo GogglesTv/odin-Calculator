@@ -52,7 +52,12 @@ equals.addEventListener("click", function () {
   if (operate === "+") add();
   if (operate === "-") subtract();
   if (operate === "*") multiply();
-  if (operate === "/") divide();
+  if (operate === "/" && !value2 === 0) {
+    divide();
+  } else if (operate === "/" && value2 === 0) {
+    display.innerText = `Are you blind?`;
+    display.style.fontSize = "36px";
+  }
 });
 
 decimal.addEventListener("click", (e) => {
