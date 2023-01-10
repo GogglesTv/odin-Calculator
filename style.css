@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(183, 180, 180);
+  background-color: rgb(186, 156, 156);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,7 +9,57 @@ header {
   color: rgb(0, 0, 0);
   font-size: larger;
   text-transform: uppercase;
-  margin-left: 30%;
+  margin-left: 25%;
   max-width: 100vw;
   flex: 1 1 100%;
+}
+
+.calculator {
+  font-size: 0;
+  margin-top: 5%;
+}
+
+.background {
+  background-color: rgb(0, 0, 0);
+  border: 10px solid rgb(53, 53, 53);
+}
+
+.input {
+  background-color: rgb(117, 117, 117);
+  height: 75px;
+  width: 99.5%;
+  border: 1px solid black;
+  color: black;
+  font-size: 70px;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+button {
+  height: 90px;
+  width: 95px;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  font-size: 30px;
+  margin: 2px;
+}
+
+.decimal {
+  font-size: 50px;
+}
+
+.row5,
+.row6 {
+  display: flex;
+}
+
+.delete {
+  flex: 1;
+}
+
+.zero {
+  flex: 1.5;
 }
