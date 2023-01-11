@@ -98,6 +98,20 @@ document.addEventListener("keyup", (e) => {
       display.innerText = displayValue;
     }
   }
+
+  if (e.key === "c") {
+    displayValue = "0";
+    display.innerText = displayValue;
+    value1 = "0";
+    value2;
+    result = 0;
+    operate = "";
+    decimal.disabled = false;
+    operators.forEach(function (operator) {
+      operator.style.backgroundColor = "orange";
+      operator.style.color = "white";
+    });
+  }
 });
 
 numbers.forEach(function (number) {
