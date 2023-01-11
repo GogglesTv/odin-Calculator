@@ -79,6 +79,13 @@ document.addEventListener("keyup", (e) => {
   if (e.key === "%") {
     moveDecimal(displayValue);
   }
+
+  if (e.key === "Backspace") {
+    if (displayValue !== "0") {
+      displayValue = display.innerText.slice(0, -1);
+      display.innerText = displayValue;
+    }
+  }
 });
 
 numbers.forEach(function (number) {
