@@ -18,11 +18,20 @@ let operate = "";
 
 document.addEventListener("keyup", (e) => {
   if (parseInt(e.key) >= 0 && parseInt(e.key) <= 9) {
+    if (typeof value1 === "number") {
+      operators.forEach(function (operator) {
+        if (operator.style.backgroundColor === "white") {
+          operator.style.backgroundColor = "orange";
+          operator.style.color = "white";
+        }
+      });
+    }
+
     if (displayValue === "0") {
       displayValue = "";
       display.innerText = displayValue;
     }
-    console.log(e.key, typeof e.key, displayValue);
+
     displayValue += e.key;
     display.innerText = displayValue;
   }
@@ -35,6 +44,7 @@ document.addEventListener("keyup", (e) => {
       if (operate === "*") multiply();
       if (operate === "/") divide();
     }
+
     operators.forEach(function (operator) {
       if (operator.dataset.operator === e.key) {
         operate = e.key;
@@ -42,6 +52,7 @@ document.addEventListener("keyup", (e) => {
         operator.style.color = "orange";
       }
     });
+
     value1 = parseInt(displayValue);
     displayValue = "";
   }
@@ -69,6 +80,7 @@ document.addEventListener("keyup", (e) => {
       displayValue += e.key;
       display.innerText = displayValue;
     }
+
     if (parseFloat(display.innerText) !== "0") {
       decimal.disabled = true;
     } else {
@@ -90,7 +102,17 @@ document.addEventListener("keyup", (e) => {
 
 numbers.forEach(function (number) {
   number.addEventListener("click", function (e) {
-    if (displayValue === "0") {
+    if (typeof value1 === "number") {
+      operators.forEach(function (operator) {
+        if (operator.style.backgroundColor === "white") {
+          operator.style.backgroundColor = "orange";
+          operator.style.color = "white";
+        }
+      });
+      display.innerText = "";
+      displayValue += e.target.dataset.num;
+      display.innerText += displayValue;
+    } else if (displayValue === "0") {
       displayValue = "";
       display.innerText = displayValue;
       displayValue += e.target.dataset.num;
@@ -146,6 +168,7 @@ decimal.addEventListener("click", (e) => {
   } else {
     decimal.disabled = false;
   }
+
   if (display.innerText === "0") {
     displayValue += 0;
     displayValue += e.target.dataset.decimal;
