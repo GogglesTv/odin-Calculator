@@ -62,11 +62,6 @@ document.addEventListener("keyup", (e) => {
   }
 
   if (e.key === ".") {
-    if (parseFloat(display.innerText) !== "0") {
-      decimal.disabled = true;
-    } else {
-      decimal.disabled = false;
-    }
     if (display.innerText === "0") {
       displayValue += e.key;
       display.innerText = displayValue;
@@ -74,6 +69,15 @@ document.addEventListener("keyup", (e) => {
       displayValue += e.key;
       display.innerText = displayValue;
     }
+    if (parseFloat(display.innerText) !== "0") {
+      decimal.disabled = true;
+    } else {
+      decimal.disabled = false;
+    }
+  }
+
+  if (e.key === "%") {
+    moveDecimal(displayValue);
   }
 });
 
