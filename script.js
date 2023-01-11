@@ -60,6 +60,21 @@ document.addEventListener("keyup", (e) => {
       }
     });
   }
+
+  if (e.key === ".") {
+    if (parseFloat(display.innerText) !== "0") {
+      decimal.disabled = true;
+    } else {
+      decimal.disabled = false;
+    }
+    if (display.innerText === "0") {
+      displayValue += e.key;
+      display.innerText = displayValue;
+    } else if (!decimal.disabled) {
+      displayValue += e.key;
+      display.innerText = displayValue;
+    }
+  }
 });
 
 numbers.forEach(function (number) {
