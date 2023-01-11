@@ -26,6 +26,25 @@ document.addEventListener("keyup", (e) => {
     displayValue += e.key;
     display.innerText = displayValue;
   }
+
+  if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*") {
+    if (typeof value1 === "number") {
+      value2 = parseFloat(displayValue);
+      if (operate === "+") add();
+      if (operate === "-") subtract();
+      if (operate === "*") multiply();
+      if (operate === "/") divide();
+    }
+    operators.forEach(function (operator) {
+      if (operator.dataset.operator === e.key) {
+        operate = e.key;
+        operator.style.backgroundColor = "white";
+        operator.style.color = "orange";
+      }
+    });
+    value1 = parseInt(displayValue);
+    displayValue = "";
+  }
 });
 
 numbers.forEach(function (number) {
