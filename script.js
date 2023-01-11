@@ -16,6 +16,18 @@ let value2;
 let result = 0;
 let operate = "";
 
+document.addEventListener("keyup", (e) => {
+  if (parseInt(e.key) >= 0 && parseInt(e.key) <= 9) {
+    if (displayValue === "0") {
+      displayValue = "";
+      display.innerText = displayValue;
+    }
+    console.log(e.key, typeof e.key, displayValue);
+    displayValue += e.key;
+    display.innerText = displayValue;
+  }
+});
+
 numbers.forEach(function (number) {
   number.addEventListener("click", function (e) {
     if (displayValue === "0") {
