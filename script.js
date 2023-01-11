@@ -140,12 +140,6 @@ operators.forEach(function (operator) {
     displayValue = "";
     e.target.style.backgroundColor = "white";
     e.target.style.color = "orange";
-    operators.forEach(function (operator) {
-      if (operator.dataset.operator !== operate) {
-        operator.style.backgroundColor = "orange";
-        operator.style.color = "white";
-      }
-    });
   });
 });
 
