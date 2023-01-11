@@ -45,6 +45,21 @@ document.addEventListener("keyup", (e) => {
     value1 = parseInt(displayValue);
     displayValue = "";
   }
+
+  if (e.key === "Enter") {
+    value2 = parseInt(displayValue);
+    if (operate === "+") add();
+    if (operate === "-") subtract();
+    if (operate === "*") multiply();
+    if (operate === "/") divide();
+
+    operators.forEach(function (operator) {
+      if (operator.style.backgroundColor === "white") {
+        operator.style.backgroundColor = "orange";
+        operator.style.color = "white";
+      }
+    });
+  }
 });
 
 numbers.forEach(function (number) {
